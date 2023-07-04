@@ -1,17 +1,18 @@
+
 import React from 'react';
 
-const LeftChild = ({ items, onItemClick }) => {
+const LeftChild = ({ data, onItemClick }) => {
   return (
-    <div className="left-child">
+    <div>
+      <h2>Left Child</h2>
       <ul className="list-group">
-        {items.map(item => (
-          <li key={item.id} className="list-group-item">
-            <button
-              className="btn btn-link"
-              onClick={() => onItemClick(item.id)}
-            >
-              {item.Name}
-            </button>
+        {data.map((item) => (
+          <li
+            key={item.id}
+            className="list-group-item"
+            onClick={() => onItemClick(item.id)}
+          >
+            {item.Name}
           </li>
         ))}
       </ul>
@@ -20,4 +21,5 @@ const LeftChild = ({ items, onItemClick }) => {
 };
 
 export default LeftChild;
+
 

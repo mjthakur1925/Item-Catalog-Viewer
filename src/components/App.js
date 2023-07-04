@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import LeftChild from './LeftChild.js';
+import LeftChild from './LeftChild';
 import RightChild from './RightChild';
 
-import { data } from '../data/data';
+
+import Data from '../data/data';
+
 
 const App = () => {
-  const [selectedItemId, setSelectedItemId] = useState(3); // Default selected item ID
+  const [selectedId, setSelectedId] = useState(3);
 
-  const handleItemClick = (itemId) => {
-    setSelectedItemId(itemId);
+  const handleItemClick = (id) => {
+    setSelectedId(id);
   };
 
   return (
-    <div className="app">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <LeftChild items={data} onItemClick={handleItemClick} />
-          </div>
-          <div className="col-md-8">
-            <RightChild selectedItem={data.find(item => item.id === selectedItemId)} />
-          </div>
+    <div className="container">
+      <div className="row">
+        <div className="col-4">
+          <LeftChild data={Data} onItemClick={handleItemClick} />
+        </div>
+        <div className="col-8">
+          <RightChild selectedItem={selectedId} />
         </div>
       </div>
     </div>
@@ -28,3 +28,4 @@ const App = () => {
 };
 
 export default App;
+
