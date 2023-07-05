@@ -1,25 +1,27 @@
-
 import React from 'react';
 
-const LeftChild = ({ data, onItemClick }) => {
+const LeftChild = ({ data, onItemClick, selectedId }) => {
   return (
-    <div>
-      <h2>Left Child</h2>
-      <ul className="list-group">
-        {data.map((item) => (
-          <li
-            key={item.id}
-            className="list-group-item"
-            onClick={() => onItemClick(item.id)}
-          >
-            {item.Name}
-          </li>
-        ))}
-      </ul>
+    <div className="list-group">
+      {data.map((item) => (
+        <a
+          key={item.id}
+          href="#!"
+          className={`list-group-item list-group-item-action ${selectedId === item.id ? 'active' : ''}`}
+          onClick={() => onItemClick(item.id)}
+        >
+          {item.Name}
+        </a>
+      ))}
     </div>
   );
 };
 
 export default LeftChild;
+
+
+
+
+
 
 

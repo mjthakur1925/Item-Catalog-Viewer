@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import Data from '../data/data';
 import LeftChild from './LeftChild';
 import RightChild from './RightChild';
 
-
-import Data from '../data/data';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/App.css'; // Import custom CSS
 
 const App = () => {
   const [selectedId, setSelectedId] = useState(3);
@@ -13,14 +13,16 @@ const App = () => {
     setSelectedId(id);
   };
 
+  const selectedItem = Data.find((item) => item.id === selectedId);
+
   return (
-    <div className="container">
+    <div className="container mt-4">
       <div className="row">
-        <div className="col-4">
-          <LeftChild data={Data} onItemClick={handleItemClick} />
+        <div className="col-3">
+          <LeftChild data={Data} onItemClick={handleItemClick} selectedId={selectedId} />
         </div>
-        <div className="col-8">
-          <RightChild selectedItem={selectedId} />
+        <div className="col-9">
+          <RightChild selectedItem={selectedItem} />
         </div>
       </div>
     </div>
@@ -28,4 +30,6 @@ const App = () => {
 };
 
 export default App;
+
+
 
